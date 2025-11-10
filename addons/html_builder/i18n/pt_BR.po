@@ -4,13 +4,14 @@
 #
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
 # "Maitê Dietze (madi)" <madi@odoo.com>, 2025.
+# "Malaz Siddig Elsayed Abuidris (msea)" <msea@odoo.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-11 13:57+0000\n"
-"PO-Revision-Date: 2025-09-25 17:33+0000\n"
-"Last-Translator: \"Maitê Dietze (madi)\" <madi@odoo.com>\n"
+"POT-Creation-Date: 2025-10-08 18:38+0000\n"
+"PO-Revision-Date: 2025-10-29 13:34+0000\n"
+"Last-Translator: \"Malaz Siddig Elsayed Abuidris (msea)\" <msea@odoo.com>\n"
 "Language-Team: Portuguese (Brazil) <https://translate.odoo.com/projects/"
 "odoo-19/html_builder/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -56,12 +57,6 @@ msgid "'Title tag' is shown as a tooltip when you hover the picture."
 msgstr ""
 "O \"Marcador Título\" é exibido como dica de contexto quando você passa o "
 "mouse sobre a imagem."
-
-#. module: html_builder
-#. odoo-javascript
-#: code:addons/html_builder/static/src/sidebar/option_container.xml:0
-msgid "ACCESS OPTIONS ANYWAY"
-msgstr "ACESSAR OPÇÕES MESMO ASSIM"
 
 #. module: html_builder
 #. odoo-javascript
@@ -122,7 +117,7 @@ msgstr "Airy 04"
 #. odoo-javascript
 #: code:addons/html_builder/static/src/plugins/background_option/background_shapes_definition.js:0
 msgid "Airy 05"
-msgstr ""
+msgstr "Airy 05"
 
 #. module: html_builder
 #. odoo-javascript
@@ -139,7 +134,6 @@ msgstr "Airy 07"
 #. module: html_builder
 #. odoo-javascript
 #: code:addons/html_builder/static/src/plugins/background_option/background_shapes_definition.js:0
-#, fuzzy
 msgid "Airy 08"
 msgstr "Airy 08"
 
@@ -153,25 +147,25 @@ msgstr "Airy 09"
 #. odoo-javascript
 #: code:addons/html_builder/static/src/plugins/background_option/background_shapes_definition.js:0
 msgid "Airy 10"
-msgstr ""
+msgstr "Airy 10"
 
 #. module: html_builder
 #. odoo-javascript
 #: code:addons/html_builder/static/src/plugins/background_option/background_shapes_definition.js:0
 msgid "Airy 11"
-msgstr ""
+msgstr "Airy 11"
 
 #. module: html_builder
 #. odoo-javascript
 #: code:addons/html_builder/static/src/plugins/background_option/background_shapes_definition.js:0
 msgid "Airy 12"
-msgstr ""
+msgstr "Airy 12"
 
 #. module: html_builder
 #. odoo-javascript
 #: code:addons/html_builder/static/src/plugins/background_option/background_shapes_definition.js:0
 msgid "Airy 13"
-msgstr ""
+msgstr "Airy 13"
 
 #. module: html_builder
 #. odoo-javascript
@@ -766,6 +760,7 @@ msgstr "Pincelado"
 
 #. module: html_builder
 #. odoo-javascript
+#: code:addons/html_builder/static/src/core/building_blocks/color_picker_theme_tab.xml:0
 #: code:addons/html_builder/static/src/utils/utils.js:0
 msgid "Button"
 msgstr "Botão"
@@ -1347,6 +1342,7 @@ msgstr "EarlyBird"
 #. module: html_builder
 #. odoo-javascript
 #: code:addons/html_builder/static/src/core/anchor/anchor_plugin.js:0
+#: code:addons/html_builder/static/src/core/building_blocks/color_picker_theme_tab.xml:0
 msgid "Edit"
 msgstr "Editar"
 
@@ -2130,12 +2126,6 @@ msgstr "Qualidade"
 
 #. module: html_builder
 #. odoo-javascript
-#: code:addons/html_builder/static/src/sidebar/option_container.xml:0
-msgid "REPLACE BY NEW VERSION"
-msgstr "SUBSTITUIR POR NOVA VERSÃO"
-
-#. module: html_builder
-#. odoo-javascript
 #: code:addons/html_builder/static/src/plugins/image/image_shapes_definition.js:0
 msgid "Rain"
 msgstr "Chuva"
@@ -2757,6 +2747,12 @@ msgstr "Tetris"
 
 #. module: html_builder
 #. odoo-javascript
+#: code:addons/html_builder/static/src/core/building_blocks/color_picker_theme_tab.xml:0
+msgid "Text"
+msgstr ""
+
+#. module: html_builder
+#. odoo-javascript
 #: code:addons/html_builder/static/src/core/anchor/anchor_dialog.xml:0
 msgid "The chosen name already exists"
 msgstr "O nome escolhido já existe"
@@ -2764,6 +2760,7 @@ msgstr "O nome escolhido já existe"
 #. module: html_builder
 #. odoo-javascript
 #: code:addons/html_builder/static/src/builder.js:0
+#: code:addons/html_builder/static/src/core/building_blocks/color_picker_theme_tab.js:0
 msgid "Theme"
 msgstr "Tema"
 
@@ -2773,12 +2770,6 @@ msgstr "Tema"
 #: code:addons/html_builder/static/src/sidebar/custom_inner_snippet.xml:0
 msgid "This block cannot be dropped anywhere on this page."
 msgstr "Esse bloco não pode ser solto em nenhum lugar da página."
-
-#. module: html_builder
-#. odoo-javascript
-#: code:addons/html_builder/static/src/sidebar/option_container.xml:0
-msgid "This block is outdated."
-msgstr "O bloco está desatualizado."
 
 #. module: html_builder
 #. odoo-javascript
@@ -2793,6 +2784,12 @@ msgstr ""
 #: code:addons/html_builder/static/src/plugins/rating_option.xml:0
 msgid "Thumbs"
 msgstr "Polegares"
+
+#. module: html_builder
+#. odoo-javascript
+#: code:addons/html_builder/static/src/core/building_blocks/color_picker_theme_tab.xml:0
+msgid "Title"
+msgstr ""
 
 #. module: html_builder
 #. odoo-javascript
@@ -2890,6 +2887,12 @@ msgstr "Tipo"
 #: code:addons/html_builder/static/src/plugins/image/image_tool_option.xml:0
 msgid "Unalign"
 msgstr "Desalinhar"
+
+#. module: html_builder
+#. odoo-javascript
+#: code:addons/html_builder/static/src/core/building_blocks/builder_many2one.xml:0
+msgid "Unselect"
+msgstr ""
 
 #. module: html_builder
 #. odoo-javascript
@@ -3051,6 +3054,12 @@ msgstr ""
 
 #. module: html_builder
 #. odoo-javascript
+#: code:addons/html_builder/static/src/plugins/image/image_format_option.xml:0
+msgid "WebP compression not supported on this browser"
+msgstr ""
+
+#. module: html_builder
+#. odoo-javascript
 #: code:addons/html_builder/static/src/plugins/background_option/background_position_option.xml:0
 #: code:addons/html_builder/static/src/plugins/separator_option.xml:0
 #: code:addons/html_builder/static/src/plugins/width_option.xml:0
@@ -3077,22 +3086,9 @@ msgstr "Sim"
 
 #. module: html_builder
 #. odoo-javascript
-#: code:addons/html_builder/static/src/sidebar/option_container.xml:0
-msgid "You can still access the block options but it might be ineffective."
-msgstr ""
-"Você ainda pode acessar as opções de bloqueio, mas talvez não seja eficaz."
-
-#. module: html_builder
-#. odoo-javascript
 #: code:addons/html_builder/static/src/core/building_blocks/builder_list.xml:0
 msgid "You don't have any record to add"
 msgstr "Você não tem registros para adicionar"
-
-#. module: html_builder
-#. odoo-javascript
-#: code:addons/html_builder/static/src/sidebar/option_container.xml:0
-msgid "You might not be able to customize it anymore."
-msgstr "Talvez você não consiga mais personalizar isso."
 
 #. module: html_builder
 #. odoo-javascript
@@ -3227,3 +3223,19 @@ msgstr "⌙ Ativo"
 #: code:addons/html_builder/static/src/plugins/rating_option.xml:0
 msgid "⌙ Inactive"
 msgstr "⌙ Inativo"
+
+#~ msgid "ACCESS OPTIONS ANYWAY"
+#~ msgstr "ACESSAR OPÇÕES MESMO ASSIM"
+
+#~ msgid "REPLACE BY NEW VERSION"
+#~ msgstr "SUBSTITUIR POR NOVA VERSÃO"
+
+#~ msgid "This block is outdated."
+#~ msgstr "O bloco está desatualizado."
+
+#~ msgid "You can still access the block options but it might be ineffective."
+#~ msgstr ""
+#~ "Você ainda pode acessar as opções de bloqueio, mas talvez não seja eficaz."
+
+#~ msgid "You might not be able to customize it anymore."
+#~ msgstr "Talvez você não consiga mais personalizar isso."
