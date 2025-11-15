@@ -355,7 +355,7 @@ class IrModuleModule(models.Model):
             install_package = None
             if platform.system() == 'Linux':
                 distro = platform.freedesktop_os_release()
-                id_likes = {distro['ID'], *distro.get('ID_LIKE').split()}
+                id_likes = {distro['ID'], *distro.get('ID_LIKE', '').split()}
                 if 'debian' in id_likes or 'ubuntu' in id_likes:
                     if package := manifest['external_dependencies'].get('apt', {}).get(e.dependency):
                         install_package = f'apt install {package}'
@@ -483,12 +483,12 @@ class IrModuleModule(models.Model):
     def button_reset_state(self):
         # reset the transient state for all modules in case the module operation is stopped in an unexpected way.
         self.search([('state', '=', 'to install')]).state = 'uninstalled'
-        self.search([('state', 'in', ('to update', 'to remove'))]).state = 'installed'
+        self.search([('state', 'in', ('to upgrade', 'to remove'))]).state = 'installed'
         return True
 
     @api.model
     def check_module_update(self):
-        return bool(self.sudo().search_count([('state', 'in', ('to install', 'to update', 'to remove'))], limit=1))
+        return bool(self.sudo().search_count([('state', 'in', ('to install', 'to upgrade', 'to remove'))], limit=1))
 
     @assert_log_admin_access
     def module_uninstall(self):

@@ -256,14 +256,14 @@ class TestPacking(TestPackingCommon):
         ml_1.copy({'picking_id': delivery_2.id, 'quantity': 1})
         # recreate the `action_put_in_pack`` steps so we don't have to add test to new module for batch pickings
         # to use batch version of method (which bypass the ensure_one() check in the stock_picking action)
-        move_lines_to_pack = (delivery_1 | delivery_2).move_line_ids._to_pack()
+        move_lines_to_pack, __ = (delivery_1 | delivery_2).move_line_ids._get_lines_and_packages_to_pack()
         self.assertEqual(len(move_lines_to_pack), 2, 'There should be move lines that can be "put in pack"')
         with self.assertRaises(UserError):
             move_lines_to_pack._pre_put_in_pack_hook()
 
         # Test that same carrier + put in pack = OK!
         delivery_2.carrier_id = delivery_1.carrier_id
-        move_lines_to_pack = (delivery_1 | delivery_2).move_line_ids._to_pack()
+        move_lines_to_pack, __ = (delivery_1 | delivery_2).move_line_ids._get_lines_and_packages_to_pack()
         self.assertEqual(len(move_lines_to_pack), 2, 'There should be move lines that can be "put in pack"')
         move_lines_to_pack._pre_put_in_pack_hook()
         package = move_lines_to_pack._put_in_pack()
@@ -350,3 +350,45 @@ class TestPacking(TestPackingCommon):
         company_a_user.group_ids = [Command.unlink(self.env.ref('stock.group_stock_multi_warehouses').id)]
         res = delivery_company_a.with_user(company_a_user).read()
         self.assertTrue(res)
+
+    def test_put_in_pack_applies_only_to_selected_move_line(self):
+        """Ensure that the 'Put in Pack' action applies only to the selected
+        stock move line, without affecting other move lines in the same picking.
+        """
+        self.env['stock.quant']._update_available_quantity(self.product_aw, self.stock_location, 5.0)
+        self.env['stock.quant']._update_available_quantity(self.product_bw, self.stock_location, 5.0)
+
+        picking_ship = self.env['stock.picking'].create({
+            'partner_id': self.env['res.partner'].create({'name': 'A partner'}).id,
+            'picking_type_id': self.warehouse.out_type_id.id,
+            'location_id': self.stock_location.id,
+            'location_dest_id': self.customer_location.id,
+            'carrier_id': self.test_carrier.id
+        })
+        move_line_1 = self.env['stock.move.line'].create({
+            'product_id': self.product_aw.id,
+            'product_uom_id': self.uom_kg.id,
+            'picking_id': picking_ship.id,
+            'quantity': 5,
+            'location_id': self.stock_location.id,
+            'location_dest_id': self.customer_location.id,
+            'picked': True,
+        })
+        move_line_2 = self.env['stock.move.line'].create({
+            'product_id': self.product_bw.id,
+            'product_uom_id': self.uom_kg.id,
+            'picking_id': picking_ship.id,
+            'quantity': 5,
+            'location_id': self.stock_location.id,
+            'location_dest_id': self.customer_location.id,
+            'picked': True,
+        })
+        pack_action = move_line_1.action_put_in_pack()
+        pack_action_ctx = pack_action['context']
+        pack_action_model = pack_action['res_model']
+        # Ensure the correct wizard action is returned
+        self.assertEqual(pack_action_model, 'stock.put.in.pack')
+        pack_wiz = self.env['stock.put.in.pack'].with_context(pack_action_ctx).create({})
+        pack_wiz.action_put_in_pack()
+        self.assertTrue(move_line_1.result_package_id, 'A package should have been created for the selected move line')
+        self.assertFalse(move_line_2.result_package_id, 'The other move line should not be packed')
